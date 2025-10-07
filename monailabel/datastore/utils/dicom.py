@@ -83,7 +83,6 @@ def dicom_web_download_series(study_id, series_id, save_dir, client: DICOMwebCli
             file_name = os.path.join(save_dir, f"{instance_id}.dcm")
             instance.save_as(file_name)
     else:
-        # TODO:: This logic (combining meta+pixeldata) needs improvement
         def save_from_frame(m):
             d = Dataset.from_json(m)
             instance_id = str(d["SOPInstanceUID"].value)
